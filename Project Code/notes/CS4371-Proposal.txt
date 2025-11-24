@@ -1,0 +1,148 @@
+--- Page 1 ---
+   
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+Project Proposal: Group 11 
+Defense against Jailbreaks in: 
+Paper Title: An Open Robustness Benchmark 
+for Jailbreaking Large Language Models 
+ 
+Group Members: Tina Carter, Nazia Islam, Swathi  
+Vallabhaneni, Jalen R Wright, Diego Dominguez-Albiter  
+  
+ 
+  
+
+--- Page 2 ---
+   
+ 
+   
+ 
+Overview: 
+Large Language Models (LLMs) are engineered with safety features to prevent the generation of harmful 
+content. However, these safeguards can be bypassed using adversarial prompts phrased in a benign manner, 
+known as jailbreaks. The field of AI safety has struggled with a lack of standardized methods for evaluating 
+the effectiveness of these jailbreak attacks and the defenses designed to stop them. Research has been 
+fragmented by inconsistent metrics and a lack of transparency, as many studies do not release the prompts 
+they use, hindering reproducibility. To resolve these issues, the researchers of this paper have introduced 
+JailbreakBench, an open-source, standardized benchmark designed to bring rigor and transparency to the 
+evaluation of LLM safety. The platform provides a unified framework to assess the robustness of LLMs, 
+with the goal of fostering the development of more secure and reliable models. 
+Core Components and Principles: JailbreakBench is built on the core principles of reproducibility, 
+extensibility, and accessibility. It includes these primary components: 
+Repository of Jailbreak Artifacts:  A publicly available and growing collection of adversarial prompts, 
+the corresponding model responses, and their success classifications. This repository is a critical resource 
+for ensuring research is reproducible and for developing stronger defenses. 
+JBB-Behaviors Dataset:  This dataset contains 100 distinct harmful behaviors categorized according to 
+OpenAI's usage policies. The behaviors are sourced from previous benchmarks (45%) and original 
+contributions (55%). Crucially, it also includes 100 corresponding benign behavior s on the same topics, 
+which are used to test whether a model or defense is overly cautious and refuses harmless requests. 
+Standardized Evaluation Framework: The benchmark includes an open-source library that establishes a 
+consistent process for evaluating LLMs. It defines threat models, system prompts, and scoring functions to 
+ensure that results are comparable across different studies. 
+Public Leaderboard and Website: A website hosts a leaderboard that tracks the performance of different 
+attacks and defenses on various LLMs. This allows the research community to monitor state -of-the-art 
+methods and benchmark new techniques. 
+Rigorous Judge Selection:  To objectively score attack success, the authors evaluated six different 
+classifiers against human judgments. They selected Llama -3-70B as the official judge due to its high 
+agreement (90.7%) with human annotators  and low refusal rate (unlike Llama-3-8B), providing a reliable 
+and reproducible scoring method. 
+Initial Findings: The paper presents an initial evaluation of four attacks and five defenses against popular 
+LLMs, including Vicuna, Llama-2, GPT-3.5, and GPT-4. 
+On Attacks:  The findings confirm that even advanced models are highly vulnerable to jailbreaks. A 
+technique using random search ("Prompt with RS") was particularly effective, achieving a 90% success 
+rate against Llama-2 and 78% against GPT -4. Older, hand-crafted jailbreaks were less successful against 
+newer models. 
+On Defenses: Test-time defense yielded mixed results. The "Erase -and-Check" method proved to be the 
+most robust defense overall. Other techniques like "SmoothLLM" and "Perplexity Filtering" offered partial 
+protection. "Synonym Substitution" was also found to be surprisingly effective. Importantly, these defenses 
+did not significantly increase the refusal rate for benign prompts. 
+Conclusion: In conclusion, JailbreakBench provides a vital, open, and standardized platform for advancing 
+LLM safety research. Its initial results underscore the persistent vulnerability of modern LLMs while also 
+showing that defenses can offer partial protection. By providing a shared toolkit, JailbreakBench aims to 
+accelerate progress toward building more robust and secure AI systems. 
+  
+
+--- Page 3 ---
+   
+ 
+   
+ 
+Intellectual Merit: 
+• The authors developed JailbreakBench, a standardized and open-source benchmark that 
+measures how effectively large language models can defend against or recover from 
+jailbreaking attacks that try to make them generate restricted or harmful outputs. 
+• The paper emphasizes three main design principles that make JailbreakBench valuable to 
+AI safety research: reproducibility, extensibility, and accessibility.  Reproducibility is 
+achieved by collecting and archiving jailbreak artifacts to establish a stable basis for 
+comparison. Extensibility allows the benchmark to include any type of jailbreaking attack 
+or defense, adapting as the community evolves to support new threat models and large 
+language models. Accessibility is ensured through a fast, lightweight, and cloud-based red-
+teaming pipeline that removes the need for local GPUs and helps accelerate future research. 
+• The authors created a JBB-Behaviors dataset, which includes 100 harmful and 100 benign 
+behaviors covering a wide range of misuse topics such as privacy, misinformation, and 
+violence. This balanced design allows researchers to explore model weaknesses and 
+identify when models reject safe prompts unnecessarily. 
+• The paper provides a repository of jailbreak artifacts, which stores attack prompts, model 
+responses, defense parameters, and success rates. This makes it easier for researchers to 
+reproduce results and improve defenses using shared data. 
+• The paper introduces five baseline defenses integrated into JailbreakBench: SmoothLLM, 
+Perplexity Filtering, Erase and Check, Synonym Substitution, and Removing Non -
+Dictionary Items.  
+• The paper presents a red-teaming pipeline that makes testing easier by letting users run 
+large language models with just a few lines of code. It works with both local and cloud -
+based systems, allowing models to be tested quickly and efficiently. 
+• The paper introduces a standardized evaluation framework through its JailbreakBench 
+repository, which helps make testing large language models more organized and fairer. It 
+includes a clearly defined threat model that explains what types of attacks and defenses can 
+be tested, ensuring consistent evaluation. The framework also provides system prompts, 
+chat templates, and scoring functions that keep experiments uniform acr oss different 
+models and research groups. By storing jailbreak artifacts such as prompts , responses, 
+attack success rates, and defense parameters, it allows researchers to easily reproduce 
+results and compare performance. 
+  
+
+--- Page 4 ---
+   
+ 
+   
+ 
+Proposed Work and Methodology 
+Task 2: (5 pts) Describe which specific topic from the paper you are investigating in further detail 
+over the next two months and why you picked that topic? Describe how it ties to the topics that we 
+have covered in the class? Which application areas can the idea that you have chosen to be applied 
+to? 
+The specific topic from this paper that we chose to focus on is defense against the jailbreaking of 
+LLMs. Jailbreak defenses involve both detecting a potential jailbreak -prompt and not flagging 
+genuinely benign prompts as attempted jailbreaks. We chose this topic because of its relevance to 
+current state of the art development (LLMs) and its relevance to class topics like misinformation , 
+protection, and confidentiality.  
+The defenses against jailbreaking are similar in scope (if not implementation) to many of the 
+security measures we learned about in class (such as DDoS-prevention-programs’ and firewalls’ 
+determination of ‘genuine’ vs ‘suspicious’ IP traffic which is similar to determining ‘benign’ and 
+‘jailbreak’ prompts) and is thus relevant to the scope of this class.  Jailbreak defenses are also 
+similar to LLM hallucination /misinformation-prevention methods, such as Shivangi Tripathi’s 
+REVISE program, in that they involve curbing LLM’s innate functionality that rewards answers 
+above all else.  
+Jailbreak defenses are specifically useful for protecting confidentiality and protecting against 
+misinformation (protecting integrity) for LLM applications. 
+Task 3: (5 pts) As part of the final presentation, you will be required to demonstrate software for 
+one idea presented in the paper or a new idea that you may have based on what you learned from 
+the paper? For the project proposal phase, describe which idea you w ill be picking and how you 
+plan on approaching this task? 
+We plan to focus on creating a new jail -break detection/defense technique to detect a small 
+category of topics of jail breaks (i.e. “disable antivirus,” “network hacking,” and “ransomware” 
+prompts or “blackmail,” “extortion,” and “gambling” prompts). Specifically, we plan to choose a 
+jailbreak topic that is related to cyber security (as opposed to a social issue like “Xenophobia ”). 
+We will use the paper’s provided method of implementing new defenses ( pg. 7) and the paper’s 
+provided metric for success of defense. This will be  analyzed both against the baseline attack 
+categories (PAIR, GCG, JB-Chat, and Prompt with RS) and against the specific set of jailbreak 
+attacks (from the JailbreakBench artifacts repot) that our defense measure will specifically be 
+designed to detect and prevent, mimicking real world jailbreaking attempts.  Our testing will be 
+done on the LLMs that this paper used to test on (in as close to the version as they used as possible). 
