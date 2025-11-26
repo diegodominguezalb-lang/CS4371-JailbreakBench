@@ -6,6 +6,7 @@ JailbreakBench respository for group project
 
 ## CyberGuard – Task 3 Demo
   In allignment with method XX in "JailbreakBench: An Open Robustness..." for adding a new defense to JailbreakBench, we have creaded CyberGuard.
+  
   Cyber-focused jailbreak detection/defense demo inspired by JailbreakBench: An Open Robustness Benchmark for Jailbreaking LLMs (LLM-2.pdf) and aligned with the CS 4371 proposal (Group 11). The demo implements a new idea for Task 3: a lightweight, topic-aware defense tuned to cyber-security jailbreaks (disable AV, network hacking, ransomware) with metrics similar to JailbreakBench (attack success rate, false positives on benign prompts).
 
 
