@@ -17,6 +17,11 @@ JailbreakBench respository for group project
   ```bash
   git clone [https://](https://github.com/KRiMSONi/CS4371-JailbreakBench.git)
   ```
+  Make sure you are in the directory where you cloned this repository. Then:
+  ```bash
+  cd CS4371-JailbreakBench
+  cd Project Code
+  ```
   Then run the code with:
   ```bash
   python3 run_demo.py
