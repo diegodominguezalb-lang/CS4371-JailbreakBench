@@ -1,4 +1,4 @@
-# CS4371-JailbreakBench
+## CS4371-JailbreakBench
 JailbreakBench respository for group project
 
 # JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models
