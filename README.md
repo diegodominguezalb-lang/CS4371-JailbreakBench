@@ -26,7 +26,7 @@ JailbreakBench respository for group project
   ```bash
   python3 run_demo.py
   ```
-  More specific uses of this code can be found in README.md in .\ProjectCode
+  More specific uses of this code can be found in README.md in .\Project Code\
 
 
 ## Other Papers relevant to the topic:
